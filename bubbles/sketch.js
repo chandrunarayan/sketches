@@ -8,7 +8,7 @@
 let bubbles = []; // A Bubble Array
 let maxBubb = 200;
 let maxRad = 30;
-let maxSpd = 2;
+let maxSpd = 1.5;
 let numColor = 4;
 
 function randomColor() {
@@ -133,22 +133,24 @@ function Bubble(tempC, tempRad, tempXpos, tempYpos, tempXspd, tempYspd) { // The
 
 }
 
-function mouseReleased() {
-  for (i = 0; i < maxBubb; i++) {
-    theBubb = bubbles[i];
-    if (theBubb.live) {
-      theCol = theBubb.getCol();
-      if (theCol === "red") { //red color
-        theBubb.goHome(maxRad, maxRad);
-      } else if (theCol === "green") { //red color
-        theBubb.goHome(width - maxRad, maxRad);
-      } else if (theCol === "blue") { //red color
-        theBubb.goHome(width - maxRad, height - maxRad);
-      } else { //black color
-        theBubb.goHome(maxRad, height - maxRad);
+function keyPressed() {
+  if (key == 's') {
+    for (i = 0; i < maxBubb; i++) {
+      theBubb = bubbles[i];
+      if (theBubb.live) {
+        theCol = theBubb.getCol();
+        if (theCol === "red") { //red color
+          theBubb.goHome(maxRad, maxRad);
+        } else if (theCol === "green") { //red color
+          theBubb.goHome(width - maxRad, maxRad);
+        } else if (theCol === "blue") { //red color
+          theBubb.goHome(width - maxRad, height - maxRad);
+        } else { //black color
+          theBubb.goHome(maxRad, height - maxRad);
+        }
       }
     }
-  }
+  }ppp
 }
 
 function mousePressed() {
