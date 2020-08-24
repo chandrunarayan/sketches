@@ -49,6 +49,11 @@ function setup() {
 
 function draw() {
   background(255);
+  stroke(0);
+  strokeWeight(2);
+  fill(255);
+  rect(0, 0, width, height);
+  
   for (i = 0; i < maxBubb; i++) {
     theBubb = bubbles[i];
     theBubb.move();
