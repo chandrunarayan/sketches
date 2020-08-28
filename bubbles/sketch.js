@@ -1,15 +1,17 @@
 // Learning Processing
 // Daniel Shiffman
 // http://www.learningprocessing.com
-// Adapted for P5JS by Chandru Narayan
+// Adapted for Java by Chandru Narayan
 // Bush School
 // Example: Bubble objects
 
 let bubbles = []; // A Bubble Array
 let maxBubb = 200;
+let liveBubb = maxBubb;
 let maxRad = 30;
 let maxSpd = 1.5;
 let numColor = 4;
+
 
 function randomColor() {
   return color(random(255), random(255), random(255), random(255));
@@ -33,6 +35,10 @@ function blackColor() {
 
 function setup() {
   createCanvas(800, 500);
+  createP("_____Welcome to CPJava !!_____");
+  createP("<p>Click on a bubble to freeze it, hit 's' key to sort by color");
+  createP("<p>Keep it running and return to it on breaks!");
+  createP("<p>How many of them can you freeze?");
   for (let i = 0, theColor; i < maxBubb; i++) {
     if (i > maxBubb * (numColor - 1) / numColor) {
       theColor = blackColor();
@@ -53,7 +59,7 @@ function draw() {
   strokeWeight(2);
   fill(255);
   rect(0, 0, width, height);
-  
+
   for (i = 0; i < maxBubb; i++) {
     theBubb = bubbles[i];
     theBubb.move();
@@ -91,17 +97,6 @@ function Bubble(tempC, tempRad, tempXpos, tempYpos, tempXspd, tempYspd) { // The
     }
   }
 
-  this.jitter = function() {
-    this.xpos += random(-this.xspd, this.xspd);
-    this.ypos += random(-this.yspd, this.yspd);
-
-    if (this.xpos > width - this.rad) {
-      this.xpos = width;
-    } else if (this.ypos > height - this.rad) {
-      this.ypos = 0;
-    }
-  }
-
   this.getCol = function() {
     bCol = splitTokens(bubbles[i].c.toString(), '(,');
     if (bCol[1] > 0) { //red color
@@ -128,12 +123,14 @@ function Bubble(tempC, tempRad, tempXpos, tempYpos, tempXspd, tempYspd) { // The
     this.xspd = 0;
     this.yspd = 0;
     this.live = false;
+    liveBubb--;
   }
 
   this.revive = function() {
     this.xspd = maxSpd;
     this.yspd = maxSpd;
     this.live = true;
+    liveBubb++;
   }
 
 }
@@ -155,7 +152,7 @@ function keyPressed() {
         }
       }
     }
-  }ppp
+  }
 }
 
 function mousePressed() {
