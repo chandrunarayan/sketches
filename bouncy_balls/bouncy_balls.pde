@@ -5,7 +5,7 @@ float friction = -0.9;
 Ball[] balls = new Ball[numBalls];
 
 void setup() {
-  size(640, 360);
+  size(805, 205);
   for (int i = 0; i < numBalls; i++) {
     balls[i] = new Ball(random(width), random(height), random(30, 70), i, balls);
   }
@@ -14,7 +14,7 @@ void setup() {
 }
 
 void draw() {
-  background(235);
+  background(207);
   for (Ball ball : balls) {
     ball.collide();
     ball.move();
