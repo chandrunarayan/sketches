@@ -29,9 +29,9 @@ class Boid {
     pushMatrix();
     fill(bColor);
     stroke(bColor);
-    translate(location.x, location.y);
+    translate((int)location.x, (int)location.y);
     Vector velVector = Vector.mul(velocity, ptSize/2); 
-    line(0, 0, velVector.x, velVector.y);
+    line(0, 0, (int)velVector.x, (int)velVector.y);
     rotate(angle(velocity));
     int corners = 4;
     int [] xCorners = new int[] {-8, 16, -8, -4};
@@ -78,9 +78,6 @@ class Boid {
     velocity.limit(topSpeed);
     location.add(velocity);
     timeLeft--;
-  }
-
-  void mouseReleased() {
   }
 
   void checkBorders () {
