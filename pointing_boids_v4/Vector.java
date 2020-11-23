@@ -70,7 +70,7 @@ class Vector {
   }
 
   float getMag() {
-    return (float) Math.sqrt(x*x + y*y);
+    return (float)(Math.sqrt(x*x + y*y));
   }
 
   void setMag(float s) {
@@ -117,7 +117,7 @@ class Vector {
 
   //static method randVal returns a float in range 0 to 0.999
   static float randVal() {
-    float v_ = (float)Math.random();
+    float v_ = (float)(Math.random());
     return v_;
   }
 

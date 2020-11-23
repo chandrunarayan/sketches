@@ -67,7 +67,7 @@ void showBoid(Boid bd_) {
     // center of Boid in Blue color
     stroke(color(0, 0, 255));
     Vector velVector = Vector.mul(bd_.velocity, Boid.ptSize);
-    line(0, 0, (int)velVector.x, (int)velVector.y);
+    line(0, 0, (int)(velVector.x), (int)(velVector.y));
 
     // Draw the Acceleration vector by cloning 
     // the acceleration vector and
