@@ -3,7 +3,7 @@
 // for Bush School CPJava course
 // Fall 2020
 //
-// 11-22-2020 pointing_boids version v2
+// 11-24-2020 pointing_boids version v2
 // Boids orient in the direction of movement
 // Boids move towards a point where mouse is pressed
 // Ability to show Velocity vectors as a line
@@ -22,8 +22,6 @@ void setup() {
   for (int i=0; i<boids.length; i++) {
     //boids[i] = new Boid(width/2, height/2, Boid.ptSize);
     boids[i] = new Boid();
-    boids[i].setFillColor(buildRandColor());
-    boids[i].setLineColor(0);
   }
   Cfg.buildBoid();
 }
@@ -57,9 +55,9 @@ void showBoid(Boid bd_) {
   if (bd_.timeLeft > 0) {
     // Save original state of orgin and rotation
     pushMatrix();    
-    fill(color(bd_.bFillC));
+    fill(color(bd_.bFillC[0], bd_.bFillC[1], bd_.bFillC[2]));
     // translate to origin (center) of Boid)
-    translate((int)bd_.location.x, (int)bd_.location.y);
+    translate((int)(bd_.location.x), (int)(bd_.location.y));
 
     // Draw the Velocity vector by cloning 
     // the velocity vector and
@@ -72,7 +70,7 @@ void showBoid(Boid bd_) {
     // Draw the Acceleration vector by cloning 
     // the acceleration vector and
     // scaling by Boid Size. Draw from
-    // center of Boid in Blue color    
+    // center of Boid in Red color    
     stroke(color(255, 0, 0));
     Vector accVector = Vector.mul(bd_.acceleration, Boid.ptSize*20);
     line(0, 0, (int)(accVector.x), (int)(accVector.y));

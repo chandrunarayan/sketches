@@ -19,8 +19,8 @@ class Boid {
   float bWidth;
   float bHeight;
   float timeLeft;
-  int bLineC;
-  int bFillC;
+  int [] bLineC;
+  int [] bFillC;
   static int ptSize = 20;
   static float maxLife = 200000;
   static float topSpeed = (float) 3.0;
@@ -32,8 +32,8 @@ class Boid {
     velocity = Vector.randVec(topSpeed);
     acceleration = Vector.randVec(accelMag/2);
     bWidth = bHeight = ptSize;
-    bLineC = 0;
-    bFillC = 255;
+    bLineC = setColor(0, 0, 0);
+    bFillC = setRandColor();
   }
 
   Boid(int x_, int y_, int s_) {
@@ -42,8 +42,8 @@ class Boid {
     velocity = new Vector(0, 0);
     acceleration = new Vector(0, 0);
     bWidth = bHeight = s_;
-    bLineC = 0;
-    bFillC = 255;
+    bLineC = setColor(0, 0, 0);
+    bFillC = setColor(255, 255, 255);
   }
 
   void resetBoid() {
@@ -52,12 +52,18 @@ class Boid {
     acceleration = Vector.randVec(accelMag/2);
   }
 
-  void setLineColor(int lc_) {
-    bLineC = lc_;
+  int [] setRandColor() {
+    int [] rc_ = new int[] { 
+      (int)(Math.random()*255), 
+      (int)(Math.random()*255), 
+      (int)(Math.random()*255)
+    };
+    return rc_;
   }
 
-  void setFillColor(int fc_) {
-    bFillC = fc_;
+  int [] setColor(int r_, int g_, int b_) {
+    int [] rc_ = new int[] { r_, g_, b_ };
+    return rc_;
   }
 
   void update () {
@@ -85,15 +91,15 @@ class Boid {
   }
 
   void checkBorders () {
-    if (location.x > Cfg.pWidth + bWidth/2) {
-      location.x = bWidth/2;
-    } else if (location.x < -bWidth/2) {
-      location.x = Cfg.pWidth - bWidth/2;
+    if (location.x > Cfg.pWidth) {
+      location.x = 0;
+    } else if (location.x < 0) {
+      location.x = Cfg.pWidth;
     }
-    if (location.y > Cfg.pHeight - bHeight/2) {
+    if (location.y > Cfg.pHeight) {
       location.y = 0;
-    } else if (location.y < -bHeight/2) {
-      location.y = Cfg.pHeight - bHeight/2;
+    } else if (location.y < 0) {
+      location.y = Cfg.pHeight;
     }
   }
 }
