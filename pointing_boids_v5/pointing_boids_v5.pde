@@ -14,7 +14,7 @@
 // Added ability to show Acceleration vector
 // Modified Boid shape a little
 //
-int numBoid = 50;
+int numBoid = 10;
 Boid [] boids = new Boid[numBoid];
 
 void setup() {
@@ -65,7 +65,7 @@ void showBoid(Boid bd_) {
     // center of Boid in Blue color
     stroke(color(0, 0, 255));
     Vector velVector = Vector.mul(bd_.velocity, Boid.bdSize);
-    //line(0, 0, (int)(velVector.x), (int)(velVector.y));
+    line(0.0, 0.0, (float)(velVector.x), (float)(velVector.y));
 
     // Draw the Acceleration vector by cloning 
     // the acceleration vector and
@@ -73,7 +73,7 @@ void showBoid(Boid bd_) {
     // center of Boid in Red color    
     stroke(color(255, 0, 0));
     Vector accVector = Vector.mul(bd_.acceleration, Boid.bdSize*20);
-    //line(0, 0, (int)(accVector.x), (int)(accVector.y));
+    line(0.0, 0.0, (float)(accVector.x), (float)(accVector.y));
 
     // rotate the Boid shape by the angle of the velocity vector
     rotate((float)bd_.location.angle(bd_.velocity));  
