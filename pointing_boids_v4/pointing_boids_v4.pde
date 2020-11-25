@@ -30,7 +30,7 @@ void draw() {
   background(255);
   updateCfg();
   for (int i=0; i<boids.length; i++) {
-    boids[i].checkBorders();
+    //boids[i].checkBorders();
     showBoid(boids[i]);
     boids[i].update();
   }
