@@ -3,7 +3,7 @@
 // for Bush School CPJava course
 // Fall 2020
 //
-// 11-24-2020 pointing_boids version v2
+// 11-25-2020 pointing_boids version v2
 // Boids orient in the direction of movement
 // Boids move towards a point where mouse is pressed
 // Ability to show Velocity vectors as a line
