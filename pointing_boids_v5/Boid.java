@@ -16,16 +16,16 @@ class Boid {
   Vector location;
   Vector velocity;
   Vector acceleration;
-  float bWidth;
-  float bHeight;
-  float timeLeft;
+  double bWidth;
+  double bHeight;
+  double timeLeft;
   int [] bLineC;
   int [] bFillC;
   static int bdSize = 20;
-  static float maxLife = 200000;
-  static float topSpeed = (float) 3.0;
-  static float accMag = (float) 0.1;  
-  static float velMag = (float) 3;
+  static double maxLife = 200000;
+  static double topSpeed = (double) 3.0;
+  static double accMag = (double) 0.1;  
+  static double velMag = (double) 3;
   
   Boid() {
     resetBoid();

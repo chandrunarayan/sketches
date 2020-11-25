@@ -3,7 +3,8 @@
 // for Bush School CPJava course
 // Fall 2020
 //
-// 11-25-2020 pointing_boids version v2
+// 11-25-2020 pointing_boids version v5
+// Chandrin Vector class to double
 // Boids orient in the direction of movement
 // Boids move towards a point where mouse is pressed
 // Ability to show Velocity vectors as a line
@@ -20,7 +21,6 @@ void setup() {
   size(800, 600);
   setupCfg();
   for (int i=0; i<boids.length; i++) {
-    //boids[i] = new Boid(width/2, height/2, Boid.bdSize);
     boids[i] = new Boid();
   }
   Cfg.buildBoid();
@@ -39,8 +39,8 @@ void draw() {
 void setupCfg() {
   Cfg.pWidth = width;
   Cfg.pHeight = height;
-  Cfg.pMouseX = width/2;
-  Cfg.pMouseY = height/2;
+  Cfg.pMouseX = 0;
+  Cfg.pMouseY = 0;
 }
 
 void updateCfg() {
@@ -76,12 +76,12 @@ void showBoid(Boid bd_) {
     line(0, 0, (int)(accVector.x), (int)(accVector.y));
 
     // rotate the Boid shape by the angle of the velocity vector
-    rotate(bd_.location.angle(bd_.velocity));  
+    rotate((float)bd_.location.angle(bd_.velocity));  
     // Draw the Boid with translated and rotated coordinates
     noStroke();
     beginShape();
     for (int i = 0; i < Cfg.vertices.length; i++) {
-      vertex(Cfg.vertices[i].x, Cfg.vertices[i].y);
+      vertex((float)Cfg.vertices[i].x, (float)Cfg.vertices[i].y);
     }
     endShape(CLOSE);
 

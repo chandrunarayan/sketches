@@ -12,9 +12,9 @@
 //
 
 class Vector {
-  float x, y;
+  double x, y;
 
-  Vector(float x_, float y_) {
+  Vector(double x_, double y_) {
     x = x_;
     y = y_;
   }
@@ -41,18 +41,18 @@ class Vector {
     return v3_;
   }
 
-  void mul(float s_) {
+  void mul(double s_) {
     x *= s_;
     y *= s_;
   }
 
   //static method mul
-  static Vector mul(Vector v_, float s_) {
+  static Vector mul(Vector v_, double s_) {
     Vector vr_ = new Vector(v_.x * s_, v_.y * s_);
     return vr_;
   }
 
-  void div(float s_) {
+  void div(double s_) {
     if (s_ != 0.0) {
       x /= s_;
       y /= s_;
@@ -60,7 +60,7 @@ class Vector {
   }
 
   //static method div
-  static Vector div(Vector v_, float s_) {
+  static Vector div(Vector v_, double s_) {
     Vector vr_ = new Vector(v_.x, v_.y);
     if (s_ != 0.0) {
       vr_.x /= s_;
@@ -69,63 +69,59 @@ class Vector {
     return vr_;
   }
 
-  float getMag() {
-    return (float)(Math.sqrt(x*x + y*y));
+  double getMag() {
+    return (double)(Math.sqrt(x*x + y*y));
   }
 
-  void setMag(float s) {
+  void setMag(double s) {
     norm();
     mul(s);
   }
 
   void norm() {
-    float m = getMag();
+    double m = getMag();
     if (m != 0) {
       div(m);
     }
   }
 
-  void limit(float l) {
-    float m = getMag();
+  void limit(double l) {
+    double m = getMag();
     if (m > l) {
       setMag(l);
     }
   }  
 
-  float angle(Vector v_) {
-    return (float)(Math.atan2(v_.y, v_.x));
+  double angle(Vector v_) {
+    return (double)(Math.atan2(v_.y, v_.x));
   }
 
   //static method randVec returns a Vector with x and y 
   //in range 0 to 0.999
   static Vector randVec() {
-    //float vx_ = (float)(((int)(Math.random()*3)-1)*Math.random());
-    //float vy_ = (float)(((int)(Math.random()*3)-1)*Math.random());
-    float vx_ = (float)((Math.random()*(int)(Math.random()*3)-1));
-    float vy_ = (float)((Math.random()*(int)(Math.random()*3)-1));
-    //float vx_ = (float)(Math.random());
-    //float vy_ = (float)(Math.random());    
+    double vx_ = (double)((Math.random()*(int)(Math.random()*3)-1));
+    double vy_ = (double)((Math.random()*(int)(Math.random()*3)-1));   
     Vector v_ = new Vector(vx_, vy_);
     return v_;
   }
 
   //static method randVec returns a Vector with x and y 
   //in range -1.0 to 0.999 scaled by arg
-  static Vector randVec(float s_) {
+  static Vector randVec(double s_) {
     Vector v_ = Vector.randVec();
     v_.setMag(s_);
     return v_;
   }
 
-  //static method randVal returns a float in range 0 to 0.999
-  static float randVal() {
-    float v_ = (float)(Math.random());
+  //static method randVal returns a double in range 0 to 0.999
+  static double randVal() {
+    double v_ = (double)(Math.random());
     return v_;
   }
 
-  //static method randVal returns a float in range 0 to 0.999 scaled by arg
-  static float randVal(float s_) {
-    float v_ = (float)(Math.random()*s_);
+  //static method randVal returns a double in range 0 to 0.999 scaled by arg
+  static double randVal(double s_) {
+    double v_ = (double)(Math.random()*s_);
     return v_;
   }
 }
