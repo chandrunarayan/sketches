@@ -57,7 +57,7 @@ void showBoid(Boid bd_) {
     pushMatrix();    
     fill(color(bd_.bFillC[0], bd_.bFillC[1], bd_.bFillC[2]));
     // translate to origin (center) of Boid)
-    translate((int)(bd_.location.x), (int)(bd_.location.y));
+    translate((float)(bd_.location.x), (float)(bd_.location.y));
 
     // Draw the Velocity vector by cloning 
     // the velocity vector and
@@ -73,7 +73,7 @@ void showBoid(Boid bd_) {
     // center of Boid in Red color    
     stroke(color(255, 0, 0));
     Vector accVector = Vector.mul(bd_.acceleration, Boid.bdSize*20);
-    line(0.0, 0.0, (float)(accVector.x), (float)(accVector.y));
+    line(0.0, 0.0, (float)(accVector.x * 0.1), (float)(accVector.y * 0.1));
 
     // rotate the Boid shape by the angle of the velocity vector
     rotate((float)bd_.location.angle(bd_.velocity));  
@@ -92,17 +92,17 @@ void showBoid(Boid bd_) {
 
 int buildRandColor() {
   return color(
-    (int)(Math.random()*255), 
-    (int)(Math.random()*255), 
-    (int)(Math.random()*255)
+    (float)(Math.random()*255), 
+    (float)(Math.random()*255), 
+    (float)(Math.random()*255)
     );
 }
 
 int buildRandColorT() {
   return color(
-    (int)(Math.random()*255), 
-    (int)(Math.random()*255), 
-    (int)(Math.random()*255), 
-    (int)(Math.random()*255)
+    (float)(Math.random()*255), 
+    (float)(Math.random()*255), 
+    (float)(Math.random()*255), 
+    (float)(Math.random()*255)
     );
 }

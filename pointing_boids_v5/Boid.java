@@ -24,7 +24,7 @@ class Boid {
   static int bdSize = 20;
   static double maxLife = 200000;
   static double topSpeed = (double) 3.0;
-  static double accMag = (double) 0.1;  
+  static double accMag = (double) 1;  
   static double velMag = (double) 3;
   
   Boid() {
@@ -75,7 +75,7 @@ class Boid {
     }
     velocity.add(acceleration);
     velocity.limit(topSpeed);
-    //location.add(velocity);
+    location.add(velocity);
     timeLeft--;
   }
 
