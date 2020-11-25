@@ -24,8 +24,8 @@ class Boid {
   static int bdSize = 20;
   static double maxLife = 200000;
   static double topSpeed = (double) 3.0;
-  static double accMag = (double) 1;  
-  static double velMag = (double) 3;
+  static double accInc = (double) 0.08;  
+  static double velInc = (double) 0.3;
   
   Boid() {
     resetBoid();
@@ -40,8 +40,8 @@ class Boid {
   void resetBoid() {
     timeLeft = Vector.randVal(maxLife);
     location = new Vector(Vector.randVal(Cfg.pWidth), Vector.randVal(Cfg.pHeight));
-    velocity = Vector.randVec(velMag);
-    acceleration = Vector.randVec(accMag);
+    velocity = Vector.randVec(velInc);
+    acceleration = Vector.randVec(accInc);
     bWidth = bHeight = bdSize;
     bLineC = setColor(0, 0, 0);
     bFillC = setRandColor();
@@ -69,13 +69,13 @@ class Boid {
       } else if (Cfg.pMousePressed) {
         Vector mouseloc = new Vector(Cfg.pMouseX, Cfg.pMouseY);
         Vector accelDir = Vector.sub(mouseloc, location);
-        accelDir.setMag(accMag);
+        accelDir.setMag(accInc);
         acceleration = accelDir;
       }
     }
     velocity.add(acceleration);
     velocity.limit(topSpeed);
-    //location.add(velocity);
+    location.add(velocity);
     timeLeft--;
   }
 
