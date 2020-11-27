@@ -2,7 +2,7 @@
 Showing Processing sketches
 
 ## [Ball Release](https://chandrunarayan.github.io/sketches/BounceGroundsSol/)
-## [Ball Release](./BounceGroundsSol/)
+## [Ball Release](./ball_release/)
 *  
 ### Bouncy Balls
 <iframe src="https://www.openprocessing.org/sketch/948492/embed/" width="400" height="300"></iframe>
