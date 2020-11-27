@@ -75,7 +75,7 @@ void showBoid(Boid bd_) {
     stroke(color(255, 0, 0));
     strokeWeight(1);
     Vector accVector = Vector.mul(bd_.acceleration, Boid.bdSize*20);
-    line(0.0, 0.0, (float)(accVector.x * 0.8), (float)(accVector.y * 0.8));
+    line(0.0, 0.0, (float)(accVector.x * 0.1), (float)(accVector.y * 0.1));
 
     // rotate the Boid shape by the angle of the velocity vector
     rotate((float)bd_.location.angle(bd_.velocity));  
