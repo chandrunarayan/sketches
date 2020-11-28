@@ -75,7 +75,9 @@ class Boid {
     }
     velocity.add(acceleration);
     velocity.limit(0.001);
-    location.add(velocity);
+    //location.add(velocity);
+    location.x += Vector.randVal(1.0);
+    location.y += Vector.randVal(-1.0);
     timeLeft--;
   }
 
