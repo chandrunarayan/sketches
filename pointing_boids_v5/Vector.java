@@ -96,6 +96,12 @@ class Vector {
     return (double)(Math.atan2(v_.y, v_.x));
   }
 
+  //static method cloneVector
+  static Vector cloneVector(Vector v_) {
+    Vector vr_ = new Vector(v_.x, v_.y);
+    return vr_;
+  }
+
   //static method randVec returns a Vector with x and y 
   //in range 0 to 0.999
   static Vector randVec() {

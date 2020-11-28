@@ -73,9 +73,9 @@ class Boid {
         acceleration = accelDir;
       }
     }
-    //velocity.add(acceleration);
-    //velocity.limit(topSpeed);
-    //location.add(velocity);
+    velocity.add(acceleration);
+    velocity.limit(topSpeed);
+    location.add(velocity);
     timeLeft--;
   }
 

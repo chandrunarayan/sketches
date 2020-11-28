@@ -4,7 +4,7 @@
 // Fall 2020
 //
 // 11-25-2020 pointing_boids version v5
-// Chandrin Vector class to double
+// Change Vector class to double
 // Boids orient in the direction of movement
 // Boids move towards a point where mouse is pressed
 // Ability to show Velocity vectors as a line
@@ -65,8 +65,9 @@ void showBoid(Boid bd_) {
     // center of Boid in Blue color
     stroke(color(0, 0, 255));
     strokeWeight(1);
-    Vector velVector = Vector.mul(bd_.velocity, Boid.bdSize);
-    velVector.limit(0);
+    //Vector velVector = Vector.mul(bd_.velocity, Boid.bdSize);
+    Vector velVector = Vector.cloneVector(bd_.velocity);
+    velVector.setMag(Boid.bdSize*2);
     line(0.0, 0.0, (float)(velVector.x), (float)(velVector.y));
 
     // Draw the Acceleration vector by cloning 
@@ -75,8 +76,9 @@ void showBoid(Boid bd_) {
     // center of Boid in Red color    
     stroke(color(255, 0, 0));
     strokeWeight(1);
-    Vector accVector = Vector.mul(bd_.acceleration, Boid.bdSize*20);
-    accVector.limit(0);
+    //Vector accVector = Vector.mul(bd_.acceleration, Boid.bdSize*20);
+    Vector accVector = Vector.cloneVector(bd_.acceleration);
+    accVector.setMag(Boid.bdSize*2);
     line(0.0, 0.0, (float)(accVector.x), (float)(accVector.y));
 
     // rotate the Boid shape by the angle of the velocity vector
