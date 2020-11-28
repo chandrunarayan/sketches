@@ -26,7 +26,7 @@ class Boid {
   static double topSpeed = (double) 3.0;
   static double accInc = (double) 0.08;  
   static double velInc = (double) 0.3;
-  
+
   Boid() {
     resetBoid();
   }
@@ -38,10 +38,10 @@ class Boid {
   }
 
   void resetBoid() {
-    timeLeft = Vector.randVal(maxLife);
     location = new Vector(Vector.randVal(Cfg.pWidth), Vector.randVal(Cfg.pHeight));
     velocity = Vector.randVec(velInc);
     acceleration = Vector.randVec(accInc);
+    timeLeft = Vector.randVal(maxLife);
     bWidth = bHeight = bdSize;
     bLineC = setColor(0, 0, 0);
     bFillC = setRandColor();

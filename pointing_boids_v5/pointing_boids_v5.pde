@@ -67,7 +67,7 @@ void showBoid(Boid bd_) {
     strokeWeight(1);
     //Vector velVector = Vector.mul(bd_.velocity, Boid.bdSize);
     Vector velVector = Vector.cloneVector(bd_.velocity);
-    velVector.setMag(Boid.bdSize*2);
+    velVector.setMag(Boid.bdSize*3);
     line(0.0, 0.0, (float)(velVector.x), (float)(velVector.y));
 
     // Draw the Acceleration vector by cloning 
