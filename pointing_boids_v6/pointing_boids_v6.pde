@@ -65,8 +65,9 @@ void showBoid(Boid bd_) {
     // center of Boid in Blue color
     stroke(color(0, 0, 255));
     strokeWeight(1);
-    Vector velVector = Vector.cloneVectorWithSize(bd_.vel, Cfg.bdSize * 3);
-    line(0.0, 0.0, (float)(velVector.x), (float)(velVector.y));
+    //Vector velVector = Vector.cloneVectorWithSize(bd_.vel, Cfg.bdSize * 3);
+    //line(0.0, 0.0, (float)(velVector.x), (float)(velVector.y));
+    line(0.0, 0.0, (float)(bd_.vel.x), (float)(bd_.vel.y));
 
     // Draw the Acceleration vector by cloning 
     // the acceleration vector and
@@ -74,9 +75,9 @@ void showBoid(Boid bd_) {
     // center of Boid in Red color    
     stroke(color(255, 0, 0));
     strokeWeight(2);
-    Vector accVector = Vector.cloneVectorWithSize(bd_.acc, Cfg.bdSize * 2);
-    line(0.0, 0.0, (float)(accVector.x), (float)(accVector.y));
-
+    //Vector accVector = Vector.cloneVectorWithSize(bd_.acc, Cfg.bdSize * 2);
+    //line(0.0, 0.0, (float)(accVector.x), (float)(accVector.y));
+    line(0.0, 0.0, (float)(bd_.acc.x), (float)(bd_.acc.y));
     // rotate the Boid shape by the angle of the velocity vector
     rotate((float)bd_.loc.angle(bd_.vel));  
     // Draw the Boid with translated and rotated coordinates
