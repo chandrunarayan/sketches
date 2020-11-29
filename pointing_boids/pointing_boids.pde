@@ -22,7 +22,7 @@ void setup() {
 void draw() {
   background(255);
   for (int i=0; i<boids.length; i++) {
-    boids[i].checkBorders();
+    //boids[i].checkBorders();
     boids[i].showBoid();
     boids[i].update();
   }
