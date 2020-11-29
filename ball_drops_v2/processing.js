@@ -6,7 +6,7 @@
     Processing.js is licensed under the MIT License, see LICENSE.
     For a list of copyright holders, please refer to AUTHORS.
 
-    http:// processingjs.org
+    http://processingjs.org
 
 ***/
 
