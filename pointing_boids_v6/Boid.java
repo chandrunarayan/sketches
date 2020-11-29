@@ -67,7 +67,8 @@ class Boid {
       }
     }
     vel.add(acc);
-    vel.limit(Cfg.topSpeed);
+    //vel.limit(Cfg.topSpeed);
+    vel.limit(0.0);
     loc.add(vel);
     timeLeft--;
   }
