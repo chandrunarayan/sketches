@@ -34,6 +34,18 @@ class Vector {
     x -= v_.x;
     y -= v_.y;
   }
+  
+  //static method mid
+  static Vector mid(Vector v1_, Vector v2_) {
+    Vector v3_ = new Vector((v1_.x + v2_.x)/2, (v1_.y + v2_.y)/2);
+    return v3_;
+  }
+
+  //static method dist
+  static double dis(Vector v1_, Vector v2_) {
+    double d_ = Math.sqrt((v1_.x - v2_.x)*(v1_.x - v2_.x) + (v1_.y - v2_.y)*(v1_.y - v2_.y));
+    return d_;
+  }
 
   //static method sub
   static Vector sub(Vector v1_, Vector v2_) {
@@ -91,7 +103,11 @@ class Vector {
       setMag(l);
     }
   }  
-
+  //static function angle between 2 vectors
+  static double angleBetween(Vector v1_,Vector v2_) {
+    return (double)(Math.atan2((v2_.y-v1_.y),(v2_.x-v1_.x)));
+  }
+  
   double angle(Vector v_) {
     return (double)(Math.atan2(v_.y, v_.x));
   }
