@@ -3,14 +3,14 @@
 // for Bush School CPJava course
 // Fall 2020
 //
-// 11-25-2020 pointing_boids version v5
+// 11-23-2020 pointing_boids version v5
 // Change Vector class to double
 // Boids orient in the direction of movement
 // Boids move towards a point where mouse is pressed
 // Ability to show Velocity vectors as a line
 // Hit 'r' to reset
 //
-// 11-22-2020 pointing_boids version v3
+// 11-28-2020 pointing_boids version v3
 // Added ability to show Acceleration vector
 // Modified Boid shape a little
 //
@@ -57,7 +57,7 @@ void showBoid(Boid bd_) {
     pushMatrix();    
     fill(color(bd_.bFillC[0], bd_.bFillC[1], bd_.bFillC[2]));
     // translate to origin (center) of Boid)
-    translate((float)(bd_.location.x), (float)(bd_.location.y));
+    translate((float)(bd_.loc.x), (float)(bd_.loc.y));
 
     // Draw the Velocity vector by cloning 
     // the velocity vector and
@@ -65,9 +65,7 @@ void showBoid(Boid bd_) {
     // center of Boid in Blue color
     stroke(color(0, 0, 255));
     strokeWeight(1);
-    //Vector velVector = Vector.mul(bd_.velocity, Boid.bdSize);
-    Vector velVector = Vector.cloneVector(bd_.velocity);
-    velVector.setMag(Boid.bdSize*3);
+    Vector velVector = Vector.cloneVectorWithSize(bd_.vel, Cfg.bdSize * 3);
     line(0.0, 0.0, (float)(velVector.x), (float)(velVector.y));
 
     // Draw the Acceleration vector by cloning 
@@ -75,14 +73,12 @@ void showBoid(Boid bd_) {
     // scaling by Boid Size. Draw from
     // center of Boid in Red color    
     stroke(color(255, 0, 0));
-    strokeWeight(1);
-    //Vector accVector = Vector.mul(bd_.acceleration, Boid.bdSize*20);
-    Vector accVector = Vector.cloneVector(bd_.acceleration);
-    accVector.setMag(Boid.bdSize*2);
+    strokeWeight(2);
+    Vector accVector = Vector.cloneVectorWithSize(bd_.acc, Cfg.bdSize * 2);
     line(0.0, 0.0, (float)(accVector.x), (float)(accVector.y));
 
     // rotate the Boid shape by the angle of the velocity vector
-    rotate((float)bd_.location.angle(bd_.velocity));  
+    rotate((float)bd_.loc.angle(bd_.vel));  
     // Draw the Boid with translated and rotated coordinates
     noStroke();
     beginShape();

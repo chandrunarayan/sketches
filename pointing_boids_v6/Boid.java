@@ -13,19 +13,14 @@
 // 
 
 class Boid {
-  Vector location;
-  Vector velocity;
-  Vector acceleration;
+  Vector loc;
+  Vector vel;
+  Vector acc;  
   double bWidth;
   double bHeight;
   double timeLeft;
   int [] bLineC;
-  int [] bFillC;
-  static int bdSize = 20;
-  static double maxLife = 200000;
-  static double topSpeed = (double) 3.0;
-  static double accInc = (double) 0.08;  
-  static double velInc = (double) 0.3;
+  int [] bFillC; 
 
   Boid() {
     resetBoid();
@@ -33,16 +28,16 @@ class Boid {
 
   Boid(int x_, int y_, int s_) {
     resetBoid();
-    location = new Vector(x_, y_);
+    loc = new Vector(x_, y_);
     bWidth = bHeight = s_;
   }
 
   void resetBoid() {
-    location = new Vector(Vector.randVal(Cfg.pWidth), Vector.randVal(Cfg.pHeight));
-    velocity = Vector.randVec(velInc);
-    acceleration = Vector.randVec(accInc);
-    timeLeft = Vector.randVal(maxLife);
-    bWidth = bHeight = bdSize;
+    loc = new Vector(Vector.randVal(Cfg.pWidth), Vector.randVal(Cfg.pHeight));
+    vel = Vector.randVec(Cfg.velMag);
+    acc = Vector.randVec(Cfg.accMag); 
+    timeLeft = Vector.randVal(Cfg.maxLife);
+    bWidth = bHeight = Cfg.bdSize;
     bLineC = setColor(0, 0, 0);
     bFillC = setRandColor();
   }
@@ -61,21 +56,19 @@ class Boid {
     return rc_;
   }
 
-  void update () {
+  void update () {  
     if (isMouseInBorder()) {
       if (Cfg.pKeyPressed) {
         if (Cfg.pKey == 'r' || Cfg.pKey == 'R')
           resetBoid();
-      } else if (Cfg.pMousePressed) {
-        Vector mouseloc = new Vector(Cfg.pMouseX, Cfg.pMouseY);
-        Vector accelDir = Vector.sub(mouseloc, location);
-        accelDir.setMag(accInc);
-        acceleration = accelDir;
+      } else {
+        acc = Vector.buildVectorFromRoot(loc, Cfg.pMouseX, Cfg.pMouseY);
+        acc.setMag(Cfg.accMag);
       }
     }
-    velocity.add(acceleration);
-    velocity.limit(topSpeed);
-    location.add(velocity);
+    vel.add(acc);
+    vel.limit(Cfg.topSpeed);
+    loc.add(vel);
     timeLeft--;
   }
 
@@ -87,15 +80,15 @@ class Boid {
   }
 
   void checkBorders () {
-    if (location.x > Cfg.pWidth) {
-      location.x = 0;
-    } else if (location.x < 0) {
-      location.x = Cfg.pWidth;
+    if (loc.x > Cfg.pWidth) {
+      loc.x = 0;
+    } else if (loc.x < 0) {
+      loc.x = Cfg.pWidth;
     }
-    if (location.y > Cfg.pHeight) {
-      location.y = 0;
-    } else if (location.y < 0) {
-      location.y = Cfg.pHeight;
+    if (loc.y > Cfg.pHeight) {
+      loc.y = 0;
+    } else if (loc.y < 0) {
+      loc.y = Cfg.pHeight;
     }
   }
 }
