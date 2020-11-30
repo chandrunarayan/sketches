@@ -30,13 +30,13 @@ class Boid {
   double accMag = (double) 0.08;   //Boid Initial Acceleration magnitude  
   double maxLife = 200000;   //Max life of a Boid
   double topSpeed = (double) 3.0;   //Limit Boid to a top speed
-  
+
   void buildBoid() {                //Function to build Boid shape
     for (int i = 0; i < vertices.length; i++) {
       vertices[i] = new PVector(xCorners[i], yCorners[i]);
     }
   }
-  
+
   Boid() {
     resetBoid();
   }
@@ -45,6 +45,48 @@ class Boid {
     resetBoid();
     loc = new PVector(x_, y_);
     bWidth = bHeight = s_;
+  }
+
+  void showBoid() {
+    if (timeLeft > 0) {
+      // Save original state of orgin and rotation
+      pushMatrix();    
+      fill(color(bFillC[0], bFillC[1], bFillC[2]));
+      // translate to origin (center) of Boid)
+      translate((float)(loc.x), (float)(loc.y));
+
+      // Draw the Velocity vector by cloning 
+      // the velocity vector and
+      // scaling by Boid Size. Draw from
+      // center of Boid in Blue color
+      stroke(color(0, 0, 255));
+      strokeWeight(1);
+      PVector velVector = vel;
+      line(0.0, 0.0, (float)(velVector.x), (float)(velVector.y));
+      //line(0.0, 0.0, (float)(vel.x), (float)(vel.y));
+
+      // Draw the Acceleration vector by cloning 
+      // the acceleration vector and
+      // scaling by Boid Size. Draw from
+      // center of Boid in Red color    
+      stroke(color(255, 0, 0));
+      strokeWeight(2);
+      PVector accVector = acc;
+      line(0.0, 0.0, (float)(accVector.x), (float)(accVector.y));
+      //line(0.0, 0.0, (float)(acc.x), (float)(acc.y));
+      // rotate the Boid shape by the angle of the velocity vector
+      rotate((float)vel.heading());  
+      // Draw the Boid with translated and rotated coordinates
+      noStroke();
+      beginShape();
+      for (int i = 0; i < vertices.length; i++) {
+        vertex((float)vertices[i].x, (float)vertices[i].y);
+      }
+      endShape(CLOSE);
+
+      // Restore original state of orgin and rotation
+      popMatrix();
+    }
   }
 
   void resetBoid() {

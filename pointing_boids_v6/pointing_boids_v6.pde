@@ -19,7 +19,6 @@ Boid [] boids = new Boid[numBoid];
 
 void setup() {
   size(800, 600);
-  //setupCfg();
   for (int i=0; i<boids.length; i++) {
     boids[i] = new Boid();
     boids[i].buildBoid();
@@ -29,10 +28,9 @@ void setup() {
 
 void draw() {
   background(255);
-  //updateCfg();
   for (int i=0; i<boids.length; i++) {
-    boids[i].checkBorders();
-    showBoid(boids[i]);
+    //boids[i].checkBorders();
+    boids[i].showBoid();
     boids[i].update();
   }
 }
@@ -51,48 +49,6 @@ void draw() {
 //  Cfg.pKeyPressed = keyPressed;
 //  Cfg.pKey = key;
 //}
-
-void showBoid(Boid bd_) {
-  if (bd_.timeLeft > 0) {
-    // Save original state of orgin and rotation
-    pushMatrix();    
-    fill(color(bd_.bFillC[0], bd_.bFillC[1], bd_.bFillC[2]));
-    // translate to origin (center) of Boid)
-    translate((float)(bd_.loc.x), (float)(bd_.loc.y));
-
-    // Draw the Velocity vector by cloning 
-    // the velocity vector and
-    // scaling by Boid Size. Draw from
-    // center of Boid in Blue color
-    stroke(color(0, 0, 255));
-    strokeWeight(1);
-    PVector velVector = bd_.vel;
-    line(0.0, 0.0, (float)(velVector.x), (float)(velVector.y));
-    //line(0.0, 0.0, (float)(bd_.vel.x), (float)(bd_.vel.y));
-
-    // Draw the Acceleration vector by cloning 
-    // the acceleration vector and
-    // scaling by Boid Size. Draw from
-    // center of Boid in Red color    
-    stroke(color(255, 0, 0));
-    strokeWeight(2);
-    PVector accVector = bd_.acc;
-    line(0.0, 0.0, (float)(accVector.x), (float)(accVector.y));
-    //line(0.0, 0.0, (float)(bd_.acc.x), (float)(bd_.acc.y));
-    // rotate the Boid shape by the angle of the velocity vector
-    rotate((float)bd_.vel.heading());  
-    // Draw the Boid with translated and rotated coordinates
-    noStroke();
-    beginShape();
-    for (int i = 0; i < bd_.vertices.length; i++) {
-      vertex((float)bd_.vertices[i].x, (float)bd_.vertices[i].y);
-    }
-    endShape(CLOSE);
-
-    // Restore original state of orgin and rotation
-    popMatrix();
-  }
-}
 
 int buildRandColor() {
   return color(
