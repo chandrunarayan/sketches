@@ -13,9 +13,9 @@
 // 
 
 class Boid {
-  Vector loc;
-  Vector vel;
-  Vector acc;  
+  PVector loc;
+  PVector vel;
+  PVector acc;  
   double bWidth;
   double bHeight;
   double timeLeft;
@@ -28,15 +28,15 @@ class Boid {
 
   Boid(int x_, int y_, int s_) {
     resetBoid();
-    loc = new Vector(x_, y_);
+    loc = new PVector(x_, y_);
     bWidth = bHeight = s_;
   }
 
   void resetBoid() {
-    loc = new Vector(Vector.randVal(Cfg.pWidth), Vector.randVal(Cfg.pHeight));
-    vel = Vector.randVec(Cfg.velMag);
-    acc = Vector.randVec(Cfg.accMag); 
-    timeLeft = Vector.randVal(Cfg.maxLife);
+    loc = new PVector((float)(Math.random()*255), (float)(Math.random()*255));
+    vel = new PVector(0.0, 0.0);
+    acc = new PVector(0.0, 0.0);
+    timeLeft = Math.random()*Cfg.maxLife;
     bWidth = bHeight = Cfg.bdSize;
     bLineC = setColor(0, 0, 0);
     bFillC = setRandColor();
@@ -62,12 +62,13 @@ class Boid {
         if (Cfg.pKey == 'r' || Cfg.pKey == 'R')
           resetBoid();
       } else {
-        acc = Vector.buildVectorFromRoot(loc, Cfg.pMouseX, Cfg.pMouseY);
-        acc.setMag(Cfg.accMag);
+        PVector mouse = new PVector((float)Cfg.pMouseX, (float)Cfg.pMouseY);
+        acc = PVector.sub(mouse, loc);
+        acc.setMag((float)Cfg.accMag);
       }
     }
     vel.add(acc);
-    vel.limit(Cfg.topSpeed);
+    vel.limit((float)Cfg.topSpeed);
     loc.add(vel);
     timeLeft--;
   }

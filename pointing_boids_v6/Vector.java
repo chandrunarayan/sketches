@@ -14,6 +14,11 @@
 class Vector {
   double x, y;
 
+  Vector() {
+    x = 0.0;
+    y = 0.0;
+  }
+  
   Vector(double x_, double y_) {
     x = x_;
     y = y_;
@@ -42,7 +47,7 @@ class Vector {
   }
 
   //static method dist
-  static double dis(Vector v1_, Vector v2_) {
+  static double dist(Vector v1_, Vector v2_) {
     double d_ = Math.sqrt((v1_.x - v2_.x)*(v1_.x - v2_.x) + (v1_.y - v2_.y)*(v1_.y - v2_.y));
     return d_;
   }
@@ -53,13 +58,13 @@ class Vector {
     return v3_;
   }
 
-  void mul(double s_) {
+  void mult(double s_) {
     x *= s_;
     y *= s_;
   }
 
-  //static method mul
-  static Vector mul(Vector v_, double s_) {
+  //static method mult
+  static Vector mult(Vector v_, double s_) {
     Vector vr_ = new Vector(v_.x * s_, v_.y * s_);
     return vr_;
   }
@@ -86,11 +91,11 @@ class Vector {
   }
 
   void setMag(double s) {
-    norm();
-    mul(s);
+    normalize();
+    mult(s);
   }
 
-  void norm() {
+  void normalize() {
     double m = getMag();
     if (m != 0) {
       div(m);
