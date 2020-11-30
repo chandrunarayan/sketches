@@ -19,16 +19,17 @@ Boid [] boids = new Boid[numBoid];
 
 void setup() {
   size(800, 600);
-  setupCfg();
+  //setupCfg();
   for (int i=0; i<boids.length; i++) {
     boids[i] = new Boid();
+    boids[i].buildBoid();
   }
-  Cfg.buildBoid();
+
 }
 
 void draw() {
   background(255);
-  updateCfg();
+  //updateCfg();
   for (int i=0; i<boids.length; i++) {
     boids[i].checkBorders();
     showBoid(boids[i]);
@@ -36,20 +37,20 @@ void draw() {
   }
 }
 
-void setupCfg() {
-  Cfg.pWidth = width;
-  Cfg.pHeight = height;
-  Cfg.pMouseX = 0;
-  Cfg.pMouseY = 0;
-}
+//void setupCfg() {
+//  Cfg.pWidth = width;
+//  Cfg.pHeight = height;
+//  Cfg.pMouseX = 0;
+//  Cfg.pMouseY = 0;
+//}
 
-void updateCfg() {
-  Cfg.pMouseX = mouseX;
-  Cfg.pMouseY = mouseY;
-  Cfg.pMousePressed = mousePressed;
-  Cfg.pKeyPressed = keyPressed;
-  Cfg.pKey = key;
-}
+//void updateCfg() {
+//  Cfg.pMouseX = mouseX;
+//  Cfg.pMouseY = mouseY;
+//  Cfg.pMousePressed = mousePressed;
+//  Cfg.pKeyPressed = keyPressed;
+//  Cfg.pKey = key;
+//}
 
 void showBoid(Boid bd_) {
   if (bd_.timeLeft > 0) {
@@ -83,8 +84,8 @@ void showBoid(Boid bd_) {
     // Draw the Boid with translated and rotated coordinates
     noStroke();
     beginShape();
-    for (int i = 0; i < Cfg.vertices.length; i++) {
-      vertex((float)Cfg.vertices[i].x, (float)Cfg.vertices[i].y);
+    for (int i = 0; i < bd_.vertices.length; i++) {
+      vertex((float)bd_.vertices[i].x, (float)bd_.vertices[i].y);
     }
     endShape(CLOSE);
 
