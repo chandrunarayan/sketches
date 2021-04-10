@@ -1,5 +1,5 @@
 import de.bezier.guido.*;
-//Declare and initialize constants NUM_ROWS and NUM_COLS = 20
+//Declare and initialize constants NUM_ROWS and NUM_COLS = 20 //
 int NUM_ROWS=20;
 int NUM_COLS=20;
 private Life[][] buttons; //2d array of Life buttons each representing one cell
@@ -13,7 +13,7 @@ int framerate = 6;
 public void setup () {
   size(800, 800);
   frameRate(framerate);
-  textAlign(CENTER,CENTER); 
+  textAlign(CENTER,CENTER);
   // make the manager
   Interactive.make( this );
   running = false;
@@ -41,10 +41,10 @@ public void draw () {
     for (int j = 0; j<NUM_COLS; j++) {
       if (running) {
         buttons[i][j].setLife(countNeighbors(i, j)==3||(countNeighbors(i, j)==2&&buttons[i][j].getLife()));
-      }      
-      
+      }
+
       buttons[i][j].show();
-      
+
       //text
       fill(255);
       textSize(floor(height/50));
@@ -54,7 +54,7 @@ public void draw () {
   }
 
   copyFromButtonsToBuffer();
-  
+
   if (nextFrame) {
     nextFrame = false;
     running = false;
@@ -95,7 +95,7 @@ public void keyPressed() {
   } else if (keyCode==37&&framerate>1) { //downarrow=-1fps
     framerate--;
   }
-  
+
 else if(keyCode>=49&&keyCode<=57) { //"1-9" keys make shapes
     setup();
     eraseScreen();
@@ -130,7 +130,7 @@ else if(keyCode>=49&&keyCode<=57) { //"1-9" keys make shapes
     }
     copyFromBufferToButtons();
   }
-  
+
   if(running&&!nextFrame) frameRate(framerate);
 }
 
@@ -225,7 +225,7 @@ public class Life {
     width = floor(800/NUM_COLS);
     height = floor(800/NUM_ROWS);
     myRow = row;
-    myCol = col; 
+    myCol = col;
     x = myCol*width;
     y = myRow*height;
     alive = false; //Math.random() < .5; // 50/50 chance cell will be alive
@@ -236,7 +236,7 @@ public class Life {
   public void mousePressed () {
     alive = !alive; //turn cell on and off with mouse press
   }
-  public void show () {    
+  public void show () {
     fill(alive ? 200 : 100);
     rect(x+0.5*(800%NUM_COLS), y+0.5*(800%NUM_ROWS), width, height);
   }
