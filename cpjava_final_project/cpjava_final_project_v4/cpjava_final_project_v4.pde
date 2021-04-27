@@ -46,7 +46,7 @@ void setup() {
   size(1400, 360);
   f = createFont("Courier", 16, true);
   //target = "Hello - my name is Catey - How do you do?";
-  target = "l'm not awake. l've not had my tea, and yet you bring me Fink-Nottles. ls this a time for any kind of Nottle? The gentleman did say it was urgent, sir. Yes, well, he lives in the country. He gets overstimulated when he's in London. Tell him l'll see him at the Drones at 12:00.Very good, sir.";
+  target = "I'm not awake. I've not had my tea, and yet you bring me Fink-Nottles. ls this a time for any kind of Nottle? The gentleman did say it was urgent, sir. Yes, well, he lives in the country Jeeves. He gets overstimulated when he's in London. Tell him l'll see him at the Drones at 12:00.Very good, sir.";
   popmax = 5000;
   mutationRate = 0.001;
 

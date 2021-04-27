@@ -12,8 +12,8 @@ while (passedTime < 50000) {
   count++;
   if ((char)random(bc, ec) == 'c' && 
     (char)random(bc, ec) == 'h' &&
-    //(char)random(bc, ec) == 'a' &&
-    //(char)random(bc, ec) == 'n' &&
+    (char)random(bc, ec) == 'a' &&
+    (char)random(bc, ec) == 'n' &&
     //(char)random(bc, ec) == 'd' &&   
     //(char)random(bc, ec) == 'r' &&
     //(char)random(bc, ec) == 'u' &&     
