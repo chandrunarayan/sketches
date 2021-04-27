@@ -119,16 +119,11 @@ public class Life {
     alive = !alive; //turn cell on and off with mouse press
   }
   public void draw () {    
-    if (alive != true)
-      fill(0);
-    else 
-      fill( 150 );
+    fill(alive ? 150 : 0);
     rect(x, y, width, height);
   }
   public boolean getLife() {
-    if(alive == true)
-      return true;
-    return false;
+    return alive ? true : false;
   }
   public void setLife(boolean living) {
     alive = living;
