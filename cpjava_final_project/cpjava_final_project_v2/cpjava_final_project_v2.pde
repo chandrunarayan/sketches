@@ -17,7 +17,7 @@
 //    # Fill it with DNA encoded objects (pick random values to start)
 
 // draw()
-//  # Step 1: Selection 
+//  # Step 1: Selection of the Fittest
 //    # Create an empty mating pool (an empty ArrayList)
 //    # For every member of the population, evaluate its fitness based on some criteria / function, 
 //      and add it to the mating pool in a manner consistant with its fitness, i.e. the more fit it 
@@ -31,7 +31,7 @@
 //       4. Add the child object to the new population.
 //    # Replace the old population with the new population
 //  
-//   # Rinse and repeat
+//   # Repeat for each Population (Generation)
 
 
 PFont f;
@@ -43,12 +43,12 @@ Population population;
 void setup() {
   size(1400, 360);
   f = createFont("Courier", 16, true);
-  //target = "Hello - my name is Catey - How do you do?";
-  //target = "l'm not awake. l've not had my tea, and yet you bring me Fink-Nottles. ls this a time for any kind of Nottle? The gentleman did say it was urgent, sir. Yes, well, he lives in the country. He gets overstimulated when he's in London. Tell him l'll see him at the Drones at 12:00.Very good, sir.";
+  target = "Hello - my name is Chandru - How do you do?";
+  //target = "I'm not awake. I've not had my tea, and yet you bring me Fink-Nottles. ls this a time for any kind of Nottle? The gentleman did say it was urgent, sir. Yes, well, he lives in the country Jeeves. He gets overstimulated when he's in London. Tell him l'll see him at the Drones at 12:00.Very good, sir.";
   popmax = 1000;
-  mutationRate = 0.001;
+  mutationRate = 0.005;
 
-  // Create a populationation with a target phrase, mutation rate, and populationation max
+  // Create a populationation with a target phrase, mutation rate, and population max
   population = new Population(target, mutationRate, popmax);
 }
 
@@ -85,7 +85,7 @@ void displayInfo() {
   text("total generations:     " + population.getGenerations(), 20, 160);
   text("average fitness:       " + nf(population.getAverageFitness(), 0, 2), 20, 180);
   text("total population:      " + popmax, 20, 200);
-  text("mutation rate:         " + int(mutationRate * 100) + "%", 20, 220);
+  text("mutation rate:         " + nf(mutationRate * 100, 0, 2) + "%", 20, 220);
  
   textSize(10);
   text("All phrases:\n" + population.allPhrases(), 500, 10);

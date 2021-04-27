@@ -1,6 +1,10 @@
 // The Nature of Code
 // Daniel Shiffman
 // http://natureofcode.com
+//
+// Adapted by Chandru Narayan
+// For the Bush School CPJava Final Project
+// Fall 2020 - Spring 2021
 
 // Genetic Algorithm, Evolving Shakespeare
 

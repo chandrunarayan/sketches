@@ -32,9 +32,7 @@
 //  
 //   # Rinse and repeat
 
-
 PFont f;
-String target;
 int popmax;
 float mutationRate;
 Population population;
@@ -42,10 +40,9 @@ Population population;
 void setup() {
   size(1400, 360);
   f = createFont("Courier", 16, true);
-  target = "To be, or not to be, that is the question!";
   popmax = 5000;
   mutationRate = 0.001;
-
+  String target = "To be, or not to be, that is the question!";
   // Create a populationation with a target phrase, mutation rate, and populationation max
   population = new Population(target, mutationRate, popmax);
 }
