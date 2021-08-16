@@ -1,7 +1,7 @@
 # CPJAVA Final Project Sketches
 
 ## Smart Rockets 1
-<iframe src=".NOC_9_02_SmartRockets_superbasic/" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="NOC_9_02_SmartRockets_superbasic/" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ## Smart Rockets 2
 <iframe src="EvolveFlowField_v4/" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
