@@ -64,6 +64,7 @@ void setup() {
   obstacles.add(new Obstacle(width/2,0,10,height/2-20));
   obstacles.add(new Obstacle(width/2,height-height/2+20,10,height/2-20));
   obstacles.add(new Obstacle(2*width/3,height/2-height/8,10,height/4));
+ 
 }
 
 void draw() {
@@ -127,5 +128,12 @@ void mouseDragged() {
 void mouseReleased() {
   obstacles.add(new Obstacle(newObstacle));
   newObstacle = null;
+  lifetime = width/3;
+  recordtime = lifetime;  
+  lifecycle = 0;  
   population.winCount = 0;
+  population.generations = 0;
+  population.earliestGen = 0;
+  population.shortestDist = width;
+  population.targetMet = false;
 }
