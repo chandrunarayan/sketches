@@ -33,6 +33,20 @@ class Obstacle {
     rect(r.x,r.y,r.width,r.height);
   }
 
+  void displayTarget() {
+    stroke(0);
+    fill(#FF33E9);
+    rectMode(CORNER);
+    rect(r.x,r.y,r.width,r.height);
+  }
+
+  void displayObstacle() {
+    stroke(0);
+    fill(175);
+    rectMode(CORNER);
+    rect(r.x,r.y,r.width,r.height);
+  }
+  
   boolean contains(PVector spot) {
     if (r.contains((int)spot.x,(int)spot.y)) {
       return true;

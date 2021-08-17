@@ -45,7 +45,7 @@ class Rocket {
     recordDist = width;
   }
 
-  //  FUNCTION 
+  //  FITNESS FUNCTION 
   // distance = distance from target
   // finish = what order did i finish (first, second, etc. . .)
   // f(distance,finish) =   (1.0f / finish^1.5) * (1.0f / distance^6);
@@ -58,7 +58,7 @@ class Rocket {
     // Reward finishing faster and getting closer
     fitness = (1.0f / pow(finish,1.5)) * (1 / (pow(d,6)));
     
-    if (dead) fitness = 0;
+    // if (dead) fitness = 0;
   }
 
   void setFinish(int f) {
@@ -91,15 +91,16 @@ class Rocket {
 
   // Did I make it to the target?
   boolean finished() {
+    boolean fini = false;
     float d = dist(position.x,position.y,target.r.x,target.r.y);
     if (d < recordDist) {
       recordDist = d;
     }
     if (target.contains(position)) {
       stopped = true;
-      return true;
+      fini = true;
     }
-    return false;
+    return fini;
   }
 
   // Did I hit an obstacle?

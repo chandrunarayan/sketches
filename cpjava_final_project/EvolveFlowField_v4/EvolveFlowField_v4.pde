@@ -60,21 +60,21 @@ void setup() {
   obstacles = new ArrayList<Obstacle>();
   
   
-  /*obstacles.add(new Obstacle(width/4,80,10,height-160));
+  obstacles.add(new Obstacle(width/4,80,10,height-160));
   obstacles.add(new Obstacle(width/2,0,10,height/2-20));
   obstacles.add(new Obstacle(width/2,height-height/2+20,10,height/2-20));
-  obstacles.add(new Obstacle(2*width/3,height/2-height/8,10,height/4));*/
+  obstacles.add(new Obstacle(2*width/3,height/2-height/8,10,height/4));
 }
 
 void draw() {
   background(255);
 
  // Draw the target positions
- target.display();
+ target.displayTarget();
   
   // Draw the obstacles
   for (Obstacle obs : obstacles) {
-    obs.display();
+    obs.displayObstacle();
   }
 
  
@@ -96,10 +96,12 @@ void draw() {
    // Display some info
    textAlign(RIGHT);
    fill(0);
-   text("Generation #:" + population.getGenerations(),width-10,18);
-   text("Cycles left:" + ((lifetime-lifecycle)),width-10,36);
-   text("Record cycles: " + recordtime,width-10,54);
+   text("Generation #: " + population.getGenerations(),width-10,18);
+   text("Lifetime remaining in cycles: " + ((lifetime-lifecycle)),width-10,36);
+   text("Closest approach to target: " + population.shortestDist,width-10,54);
    text("Winning Rockets: " + population.winCount,width-10,72);
+   text("Earliest Generation to Win: " + population.earliestGen,width-10,90);
+   text("Fastest winning time in cycles: " + (population.earliestGen > 0 ? recordtime : 0),width-10,108);
    
    if (newObstacle != null) {
      rect(newObstacle.x,newObstacle.y,newObstacle.width,newObstacle.height); 

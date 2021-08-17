@@ -19,6 +19,9 @@ class Population {
   int generations;             // Number of generations
   int winCount;                // Track number of creatures reaching target
   int order;                   // Keep track of the order of creature's finishing the maze
+  int earliestGen;             // First generation to reach target
+  int shortestDist;            // Shortest distance approached to Target for all populations
+  boolean targetMet;           // True and remains true when target has been reached the first time
 
 
 
@@ -28,6 +31,9 @@ class Population {
     population = new Rocket[num];
     darwin = new ArrayList<Rocket>();
     generations = 0;
+    earliestGen = 0;
+    shortestDist = width;
+    targetMet = false;
     //make a new set of creatures
     for (int i = 0; i < population.length; i++) {
       PVector position = new PVector(start.r.x+start.r.width/2, start.r.y+start.r.height/2);
@@ -48,6 +54,8 @@ class Population {
     for (int i = 0; i < population.length; i++) {
       // If it finishes, mark it down as done!
       if ((population[i].finished())) {
+        if (!targetMet) earliestGen = generations;
+        targetMet = true;
         population[i].setFinish(order);
         order++;
       }
@@ -71,6 +79,7 @@ class Population {
   boolean targetReached() {
     boolean result = false;
     for (int i = 0; i < population.length; i++) {
+      if (population[i].recordDist < shortestDist) shortestDist = (int)population[i].recordDist;
       if (population[i].finished()) {
         winCount++;
         result = true;
