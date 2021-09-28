@@ -36,8 +36,8 @@ class Obstacle {
   void displayTarget() {
     stroke(0);
     fill(#FF33E9);
-    rectMode(CENTER);
-    ellipse(r.x,r.y,r.width,r.height);
+    rectMode(CORNER);
+    rect(r.x,r.y,r.width,r.height);
   }
 
   void displayObstacle() {

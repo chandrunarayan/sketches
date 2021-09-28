@@ -59,12 +59,12 @@ void setup() {
   // Create the obstacle course  
   obstacles = new ArrayList<Obstacle>();
   
-/*  
+///*  
   obstacles.add(new Obstacle(width/4,80,10,height-160));
   obstacles.add(new Obstacle(width/2,0,10,height/2-20));
   obstacles.add(new Obstacle(width/2,height-height/2+20,10,height/2-20));
   obstacles.add(new Obstacle(2*width/3,height/2-height/8,10,height/4));
-*/ 
+//*/ 
 }
 
 void draw() {

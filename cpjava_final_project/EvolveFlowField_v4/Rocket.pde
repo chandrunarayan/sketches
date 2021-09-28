@@ -58,7 +58,7 @@ class Rocket {
     // Reward finishing faster and getting closer
     fitness = (1.0f / pow(finish,1.5)) * (1 / (pow(d,6)));
     
-    if (dead) fitness = 0;
+    //if (dead) fitness = 0;
   }
 
   void setFinish(int f) {
