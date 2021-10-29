@@ -9,12 +9,10 @@ class Die //models one single dice cube
     myX = x;
     myY = y;
     dieSize = 40;
-    faceValue = 0;
   }
   void roll()
   {
     faceValue  = (int)(Math.random()*6)+1;
-    sum += faceValue;
   }
   void show()
   {
