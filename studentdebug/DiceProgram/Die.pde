@@ -1,58 +1,42 @@
 class Die //models one single dice cube
 {
-  //member variable declarations here
-  int myX, myY, dieSize, faceValue;
+  int myX, myY;
+  int face;
 
   Die(int x, int y) //constructor
   {
-    //variable initializations here
     myX = x;
     myY = y;
-    dieSize = 40;
-    faceValue  = (int)(Math.random()*6)+1;
+    //roll();
   }
   void roll()
   {
-    faceValue  = (int)(Math.random()*6)+1;
+    face = (int) (Math.random()*6)+1;
+    total += face;
   }
   void show()
   {
-    square(myX, myY, dieSize);
-    if (faceValue == 1) {
-      fill(0);
-      ellipse(myX+20, myY+20, 5, 5);
-    } else if (faceValue == 2) {
-      fill(0);
-      ellipse(myX+12, myY+12, 5, 5);
-      ellipse(myX+28, myY+28, 5, 5);
-    } else if (faceValue == 3) {
-      fill(0);
-      ellipse(myX+10, myY+10, 5, 5);
-      ellipse(myX+20, myY+20, 5, 5);
-      ellipse(myX+30, myY+30, 5, 5);
-    } else if (faceValue == 4) {
-      fill(0);
-      ellipse(myX+10, myY+10, 5, 5);
-      ellipse(myX+30, myY+10, 5, 5);
-      ellipse(myX+10, myY+30, 5, 5);
-      ellipse(myX+30, myY+30, 5, 5);
-    } else if (faceValue == 5) {
-      fill(0);
-      ellipse(myX+10, myY+10, 5, 5);
-      ellipse(myX+30, myY+10, 5, 5);
-      ellipse(myX+10, myY+30, 5, 5);
-      ellipse(myX+30, myY+30, 5, 5);
-      ellipse(myX+20, myY+20, 5, 5);
-    } else if (faceValue == 6) {
-      {
-        fill(0);
-        ellipse(myX+10, myY+20, 5, 5);
-        ellipse(myX+30, myY+20, 5, 5);
-        ellipse(myX+10, myY+30, 5, 5);
-        ellipse(myX+30, myY+30, 5, 5);
-        ellipse(myX+10, myY+10, 5, 5);
-        ellipse(myX+30, myY+10, 5, 5);
-      }
+    int dotSize = 7;
+    rect (myX, myY, 50, 50);
+    fill(0, 0, 0);
+    if (face == 1 || face == 3 || face == 5) {
+      ellipse(myX+25, myY+25, dotSize, dotSize);
     }
+    if (face == 4 || face == 5 || face == 6) {
+      ellipse(myX+10, myY+10, dotSize, dotSize);
+      ellipse(myX+10, myY+40, dotSize, dotSize);
+      ellipse(myX+40, myY+40, dotSize, dotSize);
+      ellipse(myX+40, myY+10, dotSize, dotSize);
+    }
+    if (face == 2 || face == 3 || face == 6) {
+      ellipse(myX+10, myY+10, dotSize, dotSize);
+      ellipse(myX+40, myY+40, dotSize, dotSize);
+    }
+    if (face == 6) {
+      ellipse(myX+25, myY+10, dotSize, dotSize);
+      ellipse(myX+25, myY+40, dotSize, dotSize);
+    }
+    fill(255, 255, 255);
+    text(face, 100, 100);
   }
 }
