@@ -18,7 +18,7 @@ class Die //models one single dice cube
   }
   void show()
   {
-    square(myX, myY, dieSize);
+    rect(myX, myY, dieSize, dieSize);
     if (faceValue == 1) {
       fill(0);
       ellipse(myX+20, myY+20, 5, 5);
