@@ -1,24 +1,23 @@
-Die godfather;
+int total;
+
 void setup()
 {
+  size(525,600);
   noLoop();
-  size(300, 300);
-
 }
 void draw()
 {
-  background(59, 139, 237);
-  int sum = 0;
-  for (int x = 25; x <= 300; x+=100) {
-    for (int y = 25; y <= 300; y+=100) {
-      fill(255);
-      godfather = new Die(x, y);
-      godfather.roll();
-      godfather.show();
-      sum = sum + godfather.faceValue;
+  background(0,0,0);
+  total = 0;
+  for (int y = 25; y < 500; y +=60){
+    for (int x = 25; x < 500; x +=60){
+      Die newDice = new Die(x,y);
+      newDice.roll();
+      newDice.show();
     }
   }
-  text("Total: " + sum, 120, 285);
+  fill(255,255,255);
+  text("Your scored " + total + " points!", 200, 550);
 }
 void mousePressed()
 {
