@@ -4,7 +4,7 @@ Showing Processing sketches
 ## [Embed instructions](./ball_release/embed.html)
 
 ### Snowflake Embed
-<iframe src="https://openprocessing.org/sketch/1353365/embed/" width="800" height="800"></iframe>
+<iframe src="https://openprocessing.org/sketch/1353365/embed/" width="600" height="600"></iframe>
 
 ## Ball Release
 <iframe src="./ball_release/index.html" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
