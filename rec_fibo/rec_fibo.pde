@@ -1,4 +1,4 @@
-public int fibo(int n)
+public long fibo(long n)
 {
   if (n <= 2)
   {
@@ -9,9 +9,9 @@ public int fibo(int n)
   }
 }
 
-int max = 10;
+long max = 50;
 public void setup() {
-  for (int i = 1; i <= max; i++) {
+  for (long i = 1; i <= max; i++) {
     System.out.println("fibo("+i+"):" + fibo(i));
   }
 }
