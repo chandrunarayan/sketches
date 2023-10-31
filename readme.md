@@ -1,6 +1,8 @@
 # sketches
 Showing Processing sketches
 
+## [Running Processing Sketches in Github Issues](https://chandrunarayan.github.io/ProcessingInGithub/)
+
 ## [Embed instructions](./ball_release/embed.html)
 
 ## student fall 2023
