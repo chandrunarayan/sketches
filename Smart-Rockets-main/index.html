@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart rockets</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./sketch.js" defer></script>
+    <script src="./Rocket.js" defer></script>
+    <script src="./Population.js" defer></script>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <script src="./p5.min.js" defer></script>
+  </head>
+  <body>
+    <main id="container">
+      <div id="canvas"></div>
+      <section id="overarching-div">
+        <div id="info-div">
+          <p class="info">
+            Generation: <span class="content" id="generation"></span>
+          </p>
+          <p class="info">
+            Lifespan: <span id="lifespan" class="content"></span>
+          </p>
+        </div>
+        <div id="control-div">
+          <div class="form-control">
+            <label>Speed: (1-10)</label>
+            <div id="speed"></div>
+          </div>
+          <div class="form-control">
+            <label for="">Lifespan: (1-1000)</label>
+            <div id="lifespan-control"></div>
+          </div>
+          <div class="form-control">
+            <label>Population size: (1-500)</label>
+            <div id="population-size"></div>
+          </div>
+        </div>
+        <div id="button-div">
+          <div id="reset-btn"></div>
+          <a href="https://github.com/elliott-chong/smart-rockets" class="btn"
+            >Source code</a
+          >
+        </div>
+      </section>
+      <div class="description-div">
+        <p class="desc">
+          Some settings may require you to reset the population in order to see
+          the changes.
+        </p>
+        <br />
+        <p class="desc">
+          This is a showcase of genetic algorithms, a search heuristic inspired
+          by natural evolution.
+        </p>
+        <br />
+        <p class="desc">
+          The fittest elements of the population gets crossbred and reproduces
+          the next generation with their genes. After many generations, they
+          will eventually converge on the optimal genes for the task at hand.
+        </p>
+        <br />
+        <p class="desc">
+          The fitness of each rocket is calculated by the inverse of the
+          distance between it and the target at the end of its lifespan.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

@@ -31,7 +31,7 @@
 PFont f;
 int popmax = 5000;
 float mutationRate = 0.001;
-float diversity = 0.035;
+float diversity = 0.03;
 Population population;
 //String target = "To be, or not to be, that is the question!";
 //String target = "We all come in different ships, but we're in the same boat now - Dr. ML King";
@@ -42,7 +42,7 @@ void setup() {
   size(1800, 360);
   f = createFont("Courier", 16, true);
   popmax = 5000;
-  mutationRate = 0.001;
+  mutationRate = 0.0;
 
   // Create a populationation with a target phrase, mutation rate, and populationation max
   population = new Population(target, mutationRate, popmax, diversity);
