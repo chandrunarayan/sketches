@@ -4,6 +4,10 @@ float r, g, b, a;
 
 void setup() {
   size(400, 600);
+  reset();
+}
+
+void reset() {
   x = width/2.0;
   y = 0.0;
   r = (int)(Math.random()*256);
@@ -11,6 +15,7 @@ void setup() {
   b = (int)(Math.random()*256);
   //a = (int)(Math.random()*256);
 }
+
 
 void draw() {
 }
@@ -40,5 +45,5 @@ void changeColor() {
 void mousePressed() {
   changeColor();
   create_lightning();
-  setup();
+  reset();
 }
