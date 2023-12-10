@@ -8,7 +8,7 @@ Showing Processing sketches
 ## student fall 2023
 
 
-### Snowflake Embed
+### Bubbles Collision
 <iframe src="./bubbles_collision_v5/index.html" width="300%" height="800" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ### light
