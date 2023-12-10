@@ -6,7 +6,7 @@ Showing Processing sketches
 ## [Embed instructions](./ball_release/embed.html)
 
 ### Bubbles Collision
-<iframe src="./bubbles_collision_v5/index.html" width="300%" height="800"></iframe>
+<iframe src="./bubbles_collision_v5/index.html" width="100%" height="800"></iframe>
 
 ### Snowflake Embed
 <iframe src="https://openprocessing.org/sketch/1353365/embed/" width="900" height="900"></iframe>
