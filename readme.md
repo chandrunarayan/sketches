@@ -5,14 +5,8 @@ Showing Processing sketches
 
 ## [Embed instructions](./ball_release/embed.html)
 
-## student fall 2023
-
-
 ### Bubbles Collision
-<iframe src="./bubbles_collision_v5/index.html" width="300%" height="800" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
-### light
-<iframe src="./Lightning/index.html" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="./bubbles_collision_v5/index.html" width="300%" height="800"></iframe>
 
 ### Snowflake Embed
 <iframe src="https://openprocessing.org/sketch/1353365/embed/" width="900" height="900"></iframe>
@@ -32,7 +26,10 @@ Showing Processing sketches
 ### Trinket Exercise Embed
 <iframe src="https://trinket.io/embed/java/568a63bc9d" width="100%" height="300" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
+## student examples fall 2023
 
+### light
+<iframe src="./Lightning/index.html" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ** Please report any issues with this website to <chandru.narayan@bush.edu> **
 
