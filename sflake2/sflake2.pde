@@ -24,18 +24,25 @@ void draw() {
   showFlakes();
 
   createAddFlake();
-  
-  if (!aggregate) flakes.clear();
+  saveFrame("frames/####.tif");
+    
+  if (!aggregate) {
+    //saveFrame("frames/####.tif");
+    flakes.clear();
+  }
 }
 
 void showFlakes() {
   for (int i = 0; i < spokes; i++) {
     rotate(PI/(spokes/2));
     pushMatrix();
-    scale(1, -1);
     for (Flake f : flakes) {
       f.show();
     }
+    scale(1, -1);
+    for (Flake f : flakes) {
+      f.show();
+    }    
     popMatrix();
   }
 }
